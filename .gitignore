@@ -19,3 +19,4 @@ coverage
 .project
 .classpath
 .settings/
+.scannerwork/

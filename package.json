@@ -9,18 +9,20 @@
     "test": "karma start",
     "test:coverage": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
+    "posttest": "node ci-analysis.js",
     "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
     "@open-wc/eslint-config": "^2.0.0",
     "@open-wc/prettier-config": "^0.1.10",
-    "husky": "^1.0.0",
-    "lint-staged": "^8.0.0",
+    "@open-wc/testing": "^2.0.0",
     "@open-wc/testing-karma": "^3.0.0",
     "deepmerge": "^3.2.0",
-    "@open-wc/testing": "^2.0.0",
-    "es-dev-server": "^1.5.0"
+    "es-dev-server": "^1.5.0",
+    "eslint": "^6.1.0",
+    "husky": "^1.0.0",
+    "lint-staged": "^8.0.0",
+    "sonarqube-scanner": "^2.6.0"
   },
   "eslintConfig": {
     "extends": [
