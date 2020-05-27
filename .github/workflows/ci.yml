@@ -16,3 +16,5 @@ jobs:
           node-version: 12
       - run: npm install
       - run: npm test
+        env:
+          SONAR_AUTH_TOKEN: ${{secrets.SONAR_AUTH_TOKEN}}
