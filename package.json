@@ -9,7 +9,7 @@
     "test": "karma start",
     "test:coverage": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "test:post": "node ci-analysis.js",
+    "posttest": "node ci-analysis.js",
     "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
   },
   "devDependencies": {
