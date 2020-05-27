@@ -9,8 +9,8 @@
     "test": "karma start",
     "test:coverage": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "start": "es-dev-server --app-index index.html --node-resolve --open --watch",
-    "posttest": "node ci-analysis.js"
+    "test:post": "node ci-analysis.js",
+    "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
