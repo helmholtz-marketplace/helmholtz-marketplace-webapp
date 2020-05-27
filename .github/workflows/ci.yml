@@ -13,5 +13,5 @@ jobs:
       - run: npm install
       - run: npm test
       - run: node ci-analysis.js
-          env:
-            SONAR_AUTH_TOKEN: ${{secrets.SONAR_AUTH_TOKEN}}
+        env:
+          SONAR_AUTH_TOKEN: ${{secrets.SONAR_AUTH_TOKEN}}
