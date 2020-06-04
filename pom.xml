@@ -2,18 +2,18 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.hifis.cloud.marketplace</groupId>
-	<artifactId>hifis-marketplace</artifactId>
+	<groupId>de.helmholtz.marketplace</groupId>
+	<artifactId>helmholtz-marketplace-webapp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<inceptionYear>2020</inceptionYear>
 
-	<name>HIFIS Marketplace</name>
-	<url>https://www.hifis.net</url>
-	<description>A Web application for HIFIS marketplace</description>
+	<name>Helmholtz Marketplace WebApp</name>
+	<url>https://www.helmholtz.de</url>
+	<description>A Web application for Helmholtz marketplace</description>
 	<organization>
-		<name>Helmholtz Federated IT Services</name>
-		<url>https://www.hifis.net/</url>
+		<name>Helmholtz Association</name>
+		<url>https://www.helmholtz.de</url>
 	</organization>
 
 	<build>

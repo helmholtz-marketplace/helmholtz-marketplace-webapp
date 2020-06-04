@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'lit-element';
 import '@material/mwc-icon-button';
 import '@material/mwc-top-app-bar-fixed';
 
-class HifisMarketplace extends LitElement {
+class HelmholtzMarketplaceApp extends LitElement {
   constructor() {
     super();
     this.src =
@@ -168,7 +168,7 @@ class HifisMarketplace extends LitElement {
           <h1><span>welcome</span>&nbsp;&nbsp;<span>TO</span></h1>
         </div>
         <img id="logo" class="show low-res-img" src="${this.src}" alt />
-        <div id="alt" class="hidden"><h1>HIFIS Market Place</h1></div>
+        <div id="alt" class="hidden"><h1>Helmholtz Marketplace</h1></div>
         <div>
           <p><code>/we are in design phase/</code></p>
           <p>coming soon - <code>version: 0.0.1</code></p>
@@ -197,4 +197,4 @@ class HifisMarketplace extends LitElement {
     }
   }
 }
-customElements.define('hifis-marketplace', HifisMarketplace);
+customElements.define('helmholtz-marketplace-app', HelmholtzMarketplaceApp);

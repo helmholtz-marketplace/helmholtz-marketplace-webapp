@@ -1,12 +1,12 @@
 import { html, fixture, expect } from '@open-wc/testing';
 
-import '../src/hifis-marketplace.js';
+import '../src/helmholtz-marketplace-app.js';
 
-describe('HIFIS Marketplace Shell', () => {
+describe('Helmholtz Marketplace App Shell', () => {
   let element;
   beforeEach(async () => {
     element = await fixture(html`
-      <hifis-marketplace></hifis-marketplace>
+      <helmholtz-marketplace-app></helmholtz-marketplace-app>
     `);
   });
   it('renders a header', () => {

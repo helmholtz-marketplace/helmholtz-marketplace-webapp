@@ -1,6 +1,6 @@
-HIFIS Marketplace
-===================
-![](https://github.com/hifis-cloud/hifis-marketplace/workflows/CI/badge.svg)
+Helmholtz Marketplace Web App
+==============================
+![](https://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp/workflows/CI/badge.svg)
 
 An entry point web application for scientific related services from various vendors.
 
