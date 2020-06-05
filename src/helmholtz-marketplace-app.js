@@ -30,7 +30,7 @@ class HelmholtzMarketplaceApp extends LitElement {
 
   static get properties() {
     return {
-      src: { type: String },
+      src: { type: String }
     };
   }
 
@@ -89,9 +89,10 @@ class HelmholtzMarketplaceApp extends LitElement {
         padding: 0;
         color: white;
         font-family: 'Luckiest Guy', arial;
-        text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black,
-          0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black,
-          -0.03em 0.08em 0 black, -0.03em 0 0 black;
+        text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black,
+          0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black,
+          0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black,
+          -0.03em 0 0 black;
       }
       h1 span {
         -webkit-transform: scale(0.9);
@@ -99,13 +100,16 @@ class HelmholtzMarketplaceApp extends LitElement {
         display: inline-block;
       }
       h1 span:first-child {
-        -webkit-animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 30 alternate;
-        animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 30 alternate;
+        -webkit-animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards 30 alternate;
+        animation: bop 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 30
+          alternate;
       }
       h1 span:last-child {
-        -webkit-animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 30
-          alternate;
-        animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 30 alternate;
+        -webkit-animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+          forwards 30 alternate;
+        animation: bopB 1s 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards
+          30 alternate;
       }
 
       @-webkit-keyframes bop {
@@ -188,11 +192,17 @@ class HelmholtzMarketplaceApp extends LitElement {
         })
         .then(myBlob => {
           this.src = URL.createObjectURL(myBlob);
-          this.shadowRoot.getElementById('logo').classList.replace('low-res-img', 'high-res-img');
+          this.shadowRoot
+            .getElementById('logo')
+            .classList.replace('low-res-img', 'high-res-img');
         })
         .catch(() => {
-          this.shadowRoot.getElementById('alt').classList.replace('hidden', 'show');
-          this.shadowRoot.getElementById('logo').classList.replace('show', 'hidden');
+          this.shadowRoot
+            .getElementById('alt')
+            .classList.replace('hidden', 'show');
+          this.shadowRoot
+            .getElementById('logo')
+            .classList.replace('show', 'hidden');
         });
     }
   }
