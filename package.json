@@ -43,9 +43,9 @@
       "git add"
     ]
   },
-  "name": "hifis-marketplace",
+  "name": "helmholtz-marketplace-webapp",
   "version": "0.0.1",
-  "description": "A Web application for HIFIS marketplace",
+  "description": "A Web application for Helmholtz marketplace",
   "author": "HIFIS Technical Platform Core Team",
   "license": "AGPL-3.0",
   "dependencies": {

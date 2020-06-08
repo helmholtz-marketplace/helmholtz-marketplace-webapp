@@ -2,7 +2,7 @@
   "version": 2,
   "tags": [
     {
-      "name": "hifis-marketplace",
+      "name": "helmholtz-marketplace-app",
       "description": "An entry point web application for scientific related services from various vendors",
       "properties": [
         {
