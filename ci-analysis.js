@@ -5,7 +5,8 @@ sonarqubeScanner(
     serverUrl: 'https://sonar.desy.de',
     token: process.env.SONAR_AUTH_TOKEN,
     options: {
-      'sonar.projectKey': 'hifis-ui',
+      'sonar.projectKey': 'de.helmholtz.marketplace.hifis-marketplace',
+      'sonar.projectName': 'Helmholtz Marketplace Web App',
       'sonar.sources': 'src',
       'sonar.projectVersion': '0.0.1',
       'sonar.language': 'js',
