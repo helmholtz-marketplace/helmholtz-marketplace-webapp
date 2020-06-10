@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
@@ -16,12 +17,67 @@
 		<url>https://www.helmholtz.de</url>
 	</organization>
 
+	<licenses>
+		<license>
+			<name>GNU Affero General Public License Version 3</name>
+			<url>http://www.gnu.org/licenses/agpl-3.0.txt</url>
+			<distribution>manual</distribution>
+		</license>
+	</licenses>
+
+	<distributionManagement>
+		<downloadUrl>https://download.dcache.org/nexus/content/repositories/releases/</downloadUrl>
+
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>hifis.release.repository</id>
+			<name>HIFIS release repository</name>
+			<url>https://download.dcache.org/nexus/content/repositories/releases/</url>
+			<layout>default</layout>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>hifis.snapshot.repository</id>
+			<name>HIFIS snapshot repository</name>
+			<url>https://download.dcache.org/nexus/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp/issues/</url>
+	</issueManagement>
+
+	<scm>
+		<url>https://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp</url>
+		<connection>scm:git:https://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com:helmholtz-marketplace/helmholtz-marketplace-webapp.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+	<repositories>
+		<repository>
+			<id>hifis.repository</id>
+			<url>https://download.dcache.org/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<java.version>11</java.version>
+		<version.frontend-maven>1.9.1</version.frontend-maven>
+		<version.node>v12.16.1</version.node>
+		<version.npm>6.14.2</version.npm>
+		<version.maven-install-plugin>2.5.2</version.maven-install-plugin>
+		<version.maven-release-plugin>2.5.3</version.maven-release-plugin>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.9.1</version>
+				<version>${version.frontend-maven}</version>
 
 				<executions>
 					<execution>
@@ -30,8 +86,8 @@
 							<goal>install-node-and-npm</goal>
 						</goals>
 						<configuration>
-							<nodeVersion>v12.16.1</nodeVersion>
-							<npmVersion>6.14.2</npmVersion>
+							<nodeVersion>${version.node}</nodeVersion>
+							<npmVersion>${version.npm}</npmVersion>
 						</configuration>
 					</execution>
 
@@ -47,6 +103,16 @@
 					</execution>
 
 					<execution>
+						<id>npm run build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
 						<id>unit and integration tests</id>
 						<goals>
 							<goal>karma</goal>
@@ -55,7 +121,58 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptors>
+						<descriptor>hmw.xml</descriptor>
+					</descriptors>
+					<finalName>${project.artifactId}-${project.version}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${version.maven-install-plugin}</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>target/${project.artifactId}-${project.version}.jar</file>
+							<groupId>de.helmholtz.marketplace</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<packaging>jar</packaging>
+							<pomFile>pom.xml</pomFile>
+							<version>${project.version}</version>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>${version.maven-release-plugin}</version>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
-

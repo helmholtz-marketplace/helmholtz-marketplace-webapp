@@ -10,19 +10,25 @@
         "test:coverage": "karma start --coverage",
         "test:watch": "karma start --auto-watch=true --single-run=false",
         "posttest": "node ci-analysis.js",
-        "start": "es-dev-server --app-index index.html --node-resolve --open --watch"
+        "build": "rimraf target && rollup -c rollup.config.js",
+        "start": "es-dev-server --app-index index.html --node-resolve --open --watch",
+        "start:build": "npm run build && es-dev-server --root-dir target --app-index index.html --open --compatibility none"
     },
     "devDependencies": {
-        "eslint": "^6.1.0",
+        "@open-wc/building-rollup": "^1.0.0",
         "@open-wc/eslint-config": "^2.0.0",
-        "prettier": "^2.0.4",
+        "@open-wc/testing": "^2.0.0",
+        "@open-wc/testing-karma": "^3.0.0",
+        "deepmerge": "^3.2.0",
+        "es-dev-server": "^1.5.0",
+        "eslint": "^6.1.0",
         "eslint-config-prettier": "^6.11.0",
         "husky": "^1.0.0",
         "lint-staged": "^8.0.0",
-        "@open-wc/testing-karma": "^3.0.0",
-        "deepmerge": "^3.2.0",
-        "@open-wc/testing": "^2.0.0",
-        "es-dev-server": "^1.5.0",
+        "prettier": "^2.0.4",
+        "rimraf": "^2.6.3",
+        "rollup": "^2.3.4",
+        "rollup-plugin-copy": "^3.3.0",
         "sonarqube-scanner": "^2.6.0"
     },
     "eslintConfig": {
