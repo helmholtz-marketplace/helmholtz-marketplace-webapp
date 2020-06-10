@@ -10,7 +10,7 @@
         "test:coverage": "karma start --coverage",
         "test:watch": "karma start --auto-watch=true --single-run=false",
         "posttest": "node ci-analysis.js",
-        "build": "rimraf dist && rollup -c rollup.config.js",
+        "build": "rimraf target && rollup -c rollup.config.js",
         "start": "es-dev-server --app-index index.html --node-resolve --open --watch",
         "start:build": "npm run build && es-dev-server --root-dir target --app-index index.html --open --compatibility none"
     },
