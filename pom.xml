@@ -46,7 +46,7 @@
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>http://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp/issues/</url>
+		<url>https://github.com/helmholtz-marketplace/helmholtz-marketplace-webapp/issues/</url>
 	</issueManagement>
 
 	<scm>
