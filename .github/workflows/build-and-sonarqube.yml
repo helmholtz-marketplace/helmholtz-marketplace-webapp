@@ -23,3 +23,5 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
       - run: npm run test:sonarqube
+        env:
+          SONAR_AUTH_TOKEN: ${{secrets.SONAR_AUTH_TOKEN}}
